@@ -1,4 +1,4 @@
-FROM postgres:10-alpine
+FROM postgres:11-alpine
 LABEL maintainer "kazaoki lab."
 
 RUN apk --update --no-cache add --virtual build-dependencies curl make gcc musl-dev postgresql-dev icu-dev \
