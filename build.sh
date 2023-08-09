@@ -1,1 +1,1 @@
-docker build . -t kazaoki/postgres-bigm
+docker buildx build --platform=linux/amd64,linux/arm64 -t devsejong/postgres-bigm:15.3 -t devsejong/postgres-bigm:latest
