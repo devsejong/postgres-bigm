@@ -1,7 +1,7 @@
 FROM postgres:15.3
 LABEL maintainer "devsejong"
 
-RUN set -ex \
+RUN set -eux \
     && apt-get update \
     && apt-get install -y curl make gcc postgresql-server-dev-15 libicu-dev \
     && cd /tmp \
@@ -15,3 +15,6 @@ RUN set -ex \
     && apt-get purge -y curl make gcc postgresql-server-dev-15 libicu-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+# Copy in the load-extensions script
+COPY ./load-extensions.sh /docker-entrypoint-initdb.d/load-extensions.sh
